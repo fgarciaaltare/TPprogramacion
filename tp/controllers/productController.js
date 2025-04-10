@@ -9,6 +9,9 @@ const productController={
         const idcomentario=req.params.idComentario;
 
         res.render("comentariosProducto", {id: idProducto, idComentario});
+    },
+    add: function(req,res){
+        res.render('product-add')
     }
 }
 

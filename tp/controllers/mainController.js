@@ -1,3 +1,5 @@
+
+
 const mainController = {
     index: function(req, res) {
         res.render("index");
@@ -11,14 +13,6 @@ const mainController = {
         res.render("login");
     },
 
-    profile: function(req, res) {
-        const user = {
-            nombreUsuario: "usuario123",
-            email: "usuario@example.com",
-            foto: "/images/profile.jpg"
-        };
-        res.render("profile", { user });
-    },
 
     searchResults: function(req, res) {
         res.render("search-results");
