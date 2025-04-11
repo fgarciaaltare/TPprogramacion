@@ -1,171 +1,131 @@
 const data = {
-    usuario: {
-      nombre: "Valentina Ramírez",
-      email: "valentina.ramirez@example.com",
-      contraseña: "contraseña123",
-      domicilio: "Av. Siempreviva 742",
-      edad: 31,
-      avatar: "/images/users/valentina.jpg"
+  usuario: {
+    nombre: "Laura Torres",
+    email: "luna.torres@gmail.com",
+    password: "123456", 
+    fechaNacimiento: "1995-06-14",
+    domicilio: "Calle Ficticia 123, Buenos Aires",
+    imagenPerfil: "/imagenes/users/user1.jpg"
+  },
+
+  productos: [
+    {
+      id: 1,
+      nombre: "Juguete mordedor con forma de hueso",
+      descripcion: "Ideal para perros pequeños. Material resistente y seguro.",
+      imagen: "/images/products/producto4.webp",
+      categoria: "Juguetes",
+      precio: 1200,
+      comentarios: [
+        {
+          usuario: "Marcos Gutiérrez",
+          texto: "¡Mi perro lo ama! No lo suelta nunca.",
+          imagenPerfil: "/images/users/user4.jpg"
+        },
+        {
+          usuario: "Sofía Vega",
+          texto: "Muy bueno, aunque algo chico para razas grandes.",
+          imagenPerfil: "/images/users/user2.jpg"
+        }
+      ]
     },
-  
-    productos: [
-      {
-        id: 1,
-        nombre: "Golden Retriever",
-        descripcion: "Perro familiar, amigable y muy inteligente. Ideal para hogares con niños.",
-        imagen: "/images/products/golden.jpg",
-        categoria: "medianos",
-        comentarios: [
-          {
-            usuario: "Lucas Peralta",
-            texto: "Adoptamos uno hace un mes, ¡es súper cariñoso!",
-            imagenPerfil: "/images/users/lucas.jpg"
-          },
-          {
-            usuario: "Micaela Ruiz",
-            texto: "Perfecto para acompañar a los chicos. Muy obediente.",
-            imagenPerfil: "/images/users/micaela.jpg"
-          }
-        ]
-      },
-      {
-        id: 2,
-        nombre: "Bulldog Francés",
-        descripcion: "Pequeño, musculoso y muy juguetón. Excelente para departamentos.",
-        imagen: "/images/products/bulldog-frances.jpg",
-        precio: 150000,
-        categoria: "pequeños",
-        comentarios: [
-          {
-            usuario: "Julián Herrera",
-            texto: "No ronca tanto como dicen, es un amor.",
-            imagenPerfil: "/images/users/julian.jpg"
-          }
-        ]
-      },
-      {
-        id: 3,
-        nombre: "Labrador Retriever",
-        descripcion: "Activo, leal y con gran capacidad de aprendizaje. Ideal para actividades al aire libre.",
-        imagen: "/images/products/labrador.jpg",
-        precio: 115000,
-        categoria: "grandes",
-        comentarios: [
-          {
-            usuario: "Camila Torres",
-            texto: "Corre todo el día, pero es un osito de amor.",
-            imagenPerfil: "/images/users/camila.jpg"
-          }
-        ]
-      },
-      {
-        id: 4,
-        nombre: "Shih Tzu",
-        descripcion: "Pequeño, de carácter dulce y perfecto para interiores.",
-        imagen: "/images/products/shihtzu.jpg",
-        precio: 90000,
-        categoria: "pequeños",
-        comentarios: [
-          {
-            usuario: "Lucía Gómez",
-            texto: "Es como tener un peluche con vida.",
-            imagenPerfil: "/images/users/lucia.jpg"
-          }
-        ]
-      },
-      {
-        id: 5,
-        nombre: "Pastor Alemán",
-        descripcion: "Inteligente, protector y leal. Requiere actividad física y entrenamiento.",
-        imagen: "/images/products/pastor-aleman.jpg",
-        precio: 130000,
-        categoria: "grandes",
-        comentarios: [
-          {
-            usuario: "Nicolás Díaz",
-            texto: "Muy noble y atento. Excelente para vigilancia.",
-            imagenPerfil: "/images/users/nicolas.jpg"
-          }
-        ]
-      },
-      {
-        id: 6,
-        nombre: "Beagle",
-        descripcion: "Curioso, simpático y lleno de energía. Necesita espacio para moverse.",
-        imagen: "/images/products/beagle.jpg",
-        precio: 95000,
-        categoria: "medianos",
-        comentarios: [
-          {
-            usuario: "Florencia Medina",
-            texto: "Súper divertido, pero siempre hay que tenerlo vigilado.",
-            imagenPerfil: "/images/users/florencia.jpg"
-          }
-        ]
-      },
-      {
-        id: 7,
-        nombre: "Caniche Toy",
-        descripcion: "Pequeño, hipoalergénico y muy inteligente. Perfecto para departamentos.",
-        imagen: "/images/products/caniche-toy.jpg",
-        precio: 85000,
-        categoria: "pequeños",
-        comentarios: [
-          {
-            usuario: "Bruno Castro",
-            texto: "No suelta pelo, ideal para mi alergia.",
-            imagenPerfil: "/images/users/bruno.jpg"
-          }
-        ]
-      },
-      {
-        id: 8,
-        nombre: "Border Collie",
-        descripcion: "Extremadamente inteligente y ágil. Necesita ejercicio constante.",
-        imagen: "/images/products/border-collie.jpg",
-        precio: 140000,
-        categoria: "medianos",
-        comentarios: [
-          {
-            usuario: "María Elena",
-            texto: "Hace todo lo que le enseñamos, ¡increíble!",
-            imagenPerfil: "/images/users/maria.jpg"
-          }
-        ]
-      },
-      {
-        id: 9,
-        nombre: "Dálmata",
-        descripcion: "Elegante, fuerte y con mucha energía. Ideal para casas con jardín.",
-        imagen: "/images/products/dalmata.jpg",
-        precio: 110000,
-        categoria: "grandes",
-        comentarios: [
-          {
-            usuario: "Ramiro Soto",
-            texto: "Muy sociable y hermoso. Llama mucho la atención.",
-            imagenPerfil: "/images/users/ramiro.jpg"
-          }
-        ]
-      },
-      {
-        id: 10,
-        nombre: "Husky Siberiano",
-        descripcion: "Aventurero, sociable y resistente al frío. Necesita mucho ejercicio.",
-        imagen: "/images/products/husky.jpg",
-        precio: 135000,
-        categoria: "grandes",
-        comentarios: [
-          {
-            usuario: "Emilia Aguirre",
-            texto: "¡Hermoso! Pero hay que tener paciencia, son testarudos.",
-            imagenPerfil: "/images/users/emilia.jpg"
-          }
-        ]
-      }
-    ]
-  };
-  
-  module.exports = data;
+    {
+      id: 2,
+      nombre: "Correa extensible 5m",
+      descripcion: "Para paseos seguros y con libertad.",
+      imagen: "/images/product/producto3.png",
+      categoria: "Accesorios",
+      precio: 3400,
+      comentarios: [
+        {
+          usuario: "Elena Díaz",
+          texto: "Fácil de usar y se traba bien. Recomendado.",
+          imagenPerfil: "/images/users/user3.jpg"
+        }
+      ]
+    },
+    {
+      id: 3,
+      nombre: "Cama acolchada tamaño M",
+      descripcion: "Súper cómoda, lavable y duradera.",
+      imagen: "/images/products/producto2.png",
+      categoria: "Hogar",
+      precio: 8500,
+      comentarios: []
+    },
+    {
+      id: 4,
+      nombre: "Shampoo neutro para perros",
+      descripcion: "Hipoalergénico y con aroma suave.",
+      imagen: "/imagenes/products/producto7.jpg",
+      categoria: "Higiene",
+      precio: 2200,
+      comentarios: [
+        {
+          usuario: "Valentin Paz",
+          texto: "Le dejó el pelo brillante. ¡Genial!",
+          imagenPerfil: "/images/users/user5.jpg"
+        }
+      ]
+    },
+    {
+      id: 5,
+      nombre: "Pelota con sonido",
+      descripcion: "Estimula el juego. Hecha de goma natural.",
+      imagen: "/images/products/producto5.jpg",
+      categoria: "Juguetes",
+      precio: 950,
+      comentarios: []
+    },
+    {
+      id: 6,
+      nombre: "Alimento balanceado Premium 3kg",
+      descripcion: "Nutrición completa para perros adultos.",
+      imagen: "/images/products/producto1.jpg",
+      categoria: "Alimento",
+      precio: 7200,
+      comentarios: []
+    },
+    {
+      id: 7,
+      nombre: "Set de platos antideslizantes",
+      descripcion: "Incluye plato de comida y agua.",
+      imagen: "/images/products/producto6jpg",
+      categoria: "Hogar",
+      precio: 2700,
+      comentarios: []
+    },
+    {
+      id: 8,
+      nombre: "Ropa impermeable talla S",
+      descripcion: "Perfecto para días de lluvia.",
+      imagen: "/images/products/product9.jpg",
+      categoria: "Ropa",
+      precio: 3200,
+      comentarios: []
+    },
+    {
+      id: 9,
+      nombre: "Transportadora rígida chica",
+      descripcion: "Ideal para viajes y visitas al veterinario.",
+      imagen: "/images/products/producto10.jpg",
+      categoria: "Accesorios",
+      precio: 11000,
+      comentarios: []
+    },
+    {
+      id: 10,
+      nombre: "Snack dental x10",
+      descripcion: "Ayuda a mantener los dientes limpios.",
+      imagen: "/images/products/producto8jpg",
+      categoria: "Alimento",
+      precio: 1300,
+      comentarios: []
+    }
+  ]
+};
+
+module.exports = data;
+
 
 
