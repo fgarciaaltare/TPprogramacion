@@ -5,7 +5,7 @@ const userController = {
     const user = {
         nombreUsuario: data.usuario.nombre,
         email: data.usuario.email,
-        foto: data.usuario.avatar,
+        foto: data.usuario.imagenPerfil,
     };
     res.render("profile", { user });
 },

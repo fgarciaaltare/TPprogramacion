@@ -1,3 +1,4 @@
+const data= require("../db/datos")
 const productController={
     detalle: function (req, res){
         const id= req.params.id;
@@ -11,8 +12,12 @@ const productController={
         res.render("comentariosProducto", {id: idProducto, idComentario});
     },
     add: function(req,res){
-        res.render('product-add')
+        res.render('product-add', {
+            user: data.usuario
+          });
     }
+
+    
 }
 
 module.exports=productController;

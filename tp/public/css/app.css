@@ -4,14 +4,14 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #EAC926;
-  --dark-blue: #03264C;
-  --light-blue: #1259c3;
-  --gray: #666666;
-  --light-gray: #ebebeb;
+  --brown: rgb(235, 199, 167);
+  --dark-blue: red;
+  --light-blue: ;
+  --gray: rgb(99, 58, 24);
+  --light-gray: rgb(235, 199, 167);
   --green: #39b54a;
-  --base-font-family: "Montserrat", sans-serif;
-  --title-font: "Rubik", sans-serif;
+  --base-font-family: "Open Sans", sans-serif;
+  --title-font: "Bebas Neue", sans-serif ;
 }
 
 
@@ -63,6 +63,13 @@ hr {
 
 
 /*====== Main Header ======*/
+.products-title{
+  font-family: var(--title-font);
+}
+.main-title{
+  font-family: var(--title-font);
+}
+
 .main-header {
   padding: 15px 0;
   background-color: rgb(235, 199, 167)

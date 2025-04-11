@@ -1,11 +1,11 @@
 const data = {
   usuario: {
     nombre: "Laura Torres",
-    email: "luna.torres@gmail.com",
+    email: "laura.torres@gmail.com",
     password: "123456", 
     fechaNacimiento: "1995-06-14",
     domicilio: "Calle Ficticia 123, Buenos Aires",
-    imagenPerfil: "/imagenes/users/user1.jpg"
+    imagenPerfil: "/images/users/user3.png"
   },
 
   productos: [
@@ -20,12 +20,12 @@ const data = {
         {
           usuario: "Marcos Gutiérrez",
           texto: "¡Mi perro lo ama! No lo suelta nunca.",
-          imagenPerfil: "/images/users/user4.jpg"
+          imagenPerfil: "/images/users/user4.png"
         },
         {
           usuario: "Sofía Vega",
           texto: "Muy bueno, aunque algo chico para razas grandes.",
-          imagenPerfil: "/images/users/user2.jpg"
+          imagenPerfil: "/images/users/user2.png"
         }
       ]
     },
@@ -40,7 +40,7 @@ const data = {
         {
           usuario: "Elena Díaz",
           texto: "Fácil de usar y se traba bien. Recomendado.",
-          imagenPerfil: "/images/users/user3.jpg"
+          imagenPerfil: "/images/users/user3.png"
         }
       ]
     },
