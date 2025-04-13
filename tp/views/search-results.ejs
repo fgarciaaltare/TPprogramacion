@@ -16,9 +16,29 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
+			<h2 class="col-12"> <i>/<div class="col-12">
+				<h2 class="products-title">Resultados para: "<%= busqueda %>"</h2>
+			  </div>
+			  
+			  <% if (productos.length > 0) { %>
+				<% for (let i = 0; i < productos.length; i++) { %>
+				  <div class="col-md-4 mb-4">
+					<div class="card h-100">
+					  <img src="<%= productos[i].imagen %>" class="card-img-top">
+					  <div class="card-body">
+						<h5 class="card-title"><%= productos[i].nombre %></h5>
+						<p class="card-text"><%= productos[i].descripcion %></p>
+						<p class="card-text">$<%= productos[i].precio %></p>
+					  </div>
+					</div>
+				  </div>
+				<% } %>
+			  <% } else { %>
+				<div class="col-12">
+				  <p>No se encontraron productos para "<%= busqueda %>".</p>
+				</div>
+			  <% } %>
+			  
 			</h2>
 
 

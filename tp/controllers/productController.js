@@ -1,8 +1,12 @@
 const data= require("../db/datos")
+
 const productController={
+    vistaProducto: function (req, res) {
+        res.render("product");
+    }, 
     detalle: function (req, res){
         const id= req.params.id;
-        res.render("productos", {id});
+        res.render("product", {id});
     },
 
     formularioComentario: function (req,res){
