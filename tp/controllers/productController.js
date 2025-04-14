@@ -3,6 +3,8 @@ const data= require("../db/datos")
 const productController={
     vistaProducto: function (req, res) {
         res.render("product");
+        
+        
     }, 
     detalle: function (req, res){
         const id= req.params.id;
@@ -17,10 +19,10 @@ const productController={
     },
     add: function(req,res){
         res.render('product-add', {
-            user: data.usuario
+            nombreUsuario: data.usuario.nombre,
           });
-    }
-
+    },
+    
     
 }
 

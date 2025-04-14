@@ -2,12 +2,13 @@ const data= require("../db/datos")
 
 const userController = {
   profile: function(req, res) {
-    const user = {
+   
+    res.render("profile", { 
         nombreUsuario: data.usuario.nombre,
         email: data.usuario.email,
         foto: data.usuario.imagenPerfil,
-    };
-    res.render("profile", { user });
+        productos: data.productos
+    });
 },
   
     login: function(req, res) {

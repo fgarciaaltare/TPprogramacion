@@ -1,8 +1,8 @@
-
+const data = require("../db/datos")
 
 const mainController = {
     index: function(req, res) {
-        res.render("index");
+        res.render("index", {productos: data.productos });
     },
 
     register: function(req, res) {
