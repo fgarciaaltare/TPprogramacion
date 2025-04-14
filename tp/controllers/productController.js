@@ -6,9 +6,10 @@ const productController={
         
         
     }, 
-    detalle: function (req, res){
-        const id= req.params.id;
-        res.render("product", {id});
+    detalle: function (req, res) {
+        
+        
+        res.render("product", { producto: data.productos[5] });
     },
 
     formularioComentario: function (req,res){

@@ -15,20 +15,7 @@ const mainController = {
 
 
     searchResults: function(req, res) {
-        const termino = req.query.search;
-        const resultados = [];
-      
-        for (let i = 0; i < data.productos.length; i++) {
-          let nombre = data.productos[i].nombre;
-          if (nombre === termino) {
-            resultados.push(data.productos[i]);
-          }
-        }
-      
-        res.render("search-results", {
-          productos: resultados,
-          
-        });
+        res.render("search-results", {productos: data.productos,});
       }
 };
 

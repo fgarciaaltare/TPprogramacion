@@ -16,7 +16,7 @@ const data = {
       imagen: "/images/products/producto4.png",
       categoria: "Juguetes",
       precio: 1200,
-      comentarios: [
+      comentarios:  [
         {
           usuario: "Marcos Gutiérrez",
           texto: "¡Mi perro lo ama! No lo suelta nunca.",
@@ -26,9 +26,16 @@ const data = {
           usuario: "Sofía Vega",
           texto: "Muy bueno, aunque algo chico para razas grandes.",
           imagenPerfil: "/images/users/user2.png"
+        },
+        {
+          usuario: "Lucía Fernández",
+          texto: "Es su juguete favorito desde que llegó.",
+          imagenPerfil: "/images/users/user1.jpg"
         }
       ]
     },
+
+    
     {
       id: 2,
       nombre: "Correa extensible 5m",
@@ -41,6 +48,16 @@ const data = {
           usuario: "Elena Díaz",
           texto: "Fácil de usar y se traba bien. Recomendado.",
           imagenPerfil: "/images/users/user3.png"
+        },
+        {
+          usuario: "Carlos Méndez",
+          texto: "Mi perro disfruta mucho más los paseos ahora.",
+          imagenPerfil: "/images/users/user6.png"
+        },
+        {
+          usuario: "Romina López",
+          texto: "Buena calidad, me sorprendió gratamente.",
+          imagenPerfil: "/images/users/user3.png"
         }
       ]
     },
@@ -51,7 +68,23 @@ const data = {
       imagen: "/images/products/producto2.png",
       categoria: "Hogar",
       precio: 8500,
-      comentarios: []
+      comentarios: [
+        {
+          usuario: "Valentin Paz",
+          texto: "Le dejó el pelo brillante. ¡Genial!",
+          imagenPerfil: "/images/users/user5.png"
+        },
+        {
+          usuario: "Ana Ríos",
+          texto: "El aroma es suave y dura varios días.",
+          imagenPerfil: "/images/users/user4.png"
+        },
+        {
+          usuario: "Gabriel Soto",
+          texto: "Perfecto para pieles sensibles.",
+          imagenPerfil: "/images/users/user2.png"
+        }
+      ]
     },
     {
       id: 4,
@@ -65,6 +98,16 @@ const data = {
           usuario: "Valentin Paz",
           texto: "Le dejó el pelo brillante. ¡Genial!",
           imagenPerfil: "/images/users/user5.png"
+        },
+        {
+          usuario: "Ana Ríos",
+          texto: "El aroma es suave y dura varios días.",
+          imagenPerfil: "/images/users/user1.jpg"
+        },
+        {
+          usuario: "Gabriel Soto",
+          texto: "Perfecto para pieles sensibles.",
+          imagenPerfil: "/images/users/user2.png"
         }
       ]
     },
@@ -75,7 +118,23 @@ const data = {
       imagen: "/images/products/producto5.png",
       categoria: "Juguetes",
       precio: 950,
-      comentarios: []
+      comentarios: [
+        {
+          usuario: "Martina Núñez",
+          texto: "Hace un ruido divertido y no se rompe fácil.",
+          imagenPerfil: "/images/users/user4.png"
+        },
+        {
+          usuario: "Tomás Herrera",
+          texto: "Mi cachorro juega todo el día con ella.",
+          imagenPerfil: "/images/users/user3.png"
+        },
+        {
+          usuario: "Luz Morales",
+          texto: "Buena para interiores, no daña muebles.",
+          imagenPerfil: "/images/users/user1.jpg"
+        }
+      ]
     },
     {
       id: 6,
@@ -84,7 +143,23 @@ const data = {
       imagen: "/images/products/producto1.png",
       categoria: "Alimento",
       precio: 7200,
-      comentarios: []
+      comentarios: [
+        {
+          usuario: "Federico Linares",
+          texto: "Mi perro mejoró su pelaje desde que lo consume.",
+          imagenPerfil: "/images/users/user2.png"
+        },
+        {
+          usuario: "Alicia Robles",
+          texto: "Buen precio por la calidad. Le encanta.",
+          imagenPerfil: "/images/users/user5.png"
+        },
+        {
+          usuario: "Ricardo Cabrera",
+          texto: "Se lo recomendó el veterinario, y fue un acierto.",
+          imagenPerfil: "/images/users/user3.png"
+        }
+      ]
     },
     {
       id: 7,
@@ -93,7 +168,23 @@ const data = {
       imagen: "/images/products/producto6.png",
       categoria: "Hogar",
       precio: 2700,
-      comentarios: []
+      comentarios:[
+        {
+          usuario: "Natalia Paredes",
+          texto: "No se mueve nada, ideal para perros inquietos.",
+          imagenPerfil: "/images/users/user1.jpg"
+        },
+        {
+          usuario: "Santiago Ruiz",
+          texto: "Prácticos y fáciles de lavar.",
+          imagenPerfil: "/images/users/user3.png"
+        },
+        {
+          usuario: "Lorena Campos",
+          texto: "Buen tamaño, se ve resistentes.",
+          imagenPerfil: "/images/users/user4.png"
+        }
+      ]
     },
     {
       id: 8,
@@ -102,7 +193,23 @@ const data = {
       imagen: "/images/products/producto9.png",
       categoria: "Ropa",
       precio: 3200,
-      comentarios: []
+      comentarios: [
+        {
+          usuario: "Carla Ayala",
+          texto: "Mi perrita va feliz bajo la lluvia ahora.",
+          imagenPerfil: "/images/users/user3.png"
+        },
+        {
+          usuario: "Julián Cabrera",
+          texto: "Muy buena costura y se adapta bien al cuerpo.",
+          imagenPerfil: "/images/users/user4.png"
+        },
+        {
+          usuario: "Delfina Ortiz",
+          texto: "Además de funcional, ¡es muy linda!",
+          imagenPerfil: "/images/users/user2.png"
+        }
+      ]
     },
     {
       id: 9,
@@ -111,7 +218,23 @@ const data = {
       imagen: "/images/products/producto10.png",
       categoria: "Accesorios",
       precio: 11000,
-      comentarios: []
+      comentarios: [
+        {
+          usuario: "Ezequiel Blanco",
+          texto: "Mi gato va cómodo y seguro en los viajes.",
+          imagenPerfil: "/images/users/user5.png"
+        },
+        {
+          usuario: "Florencia Gómez",
+          texto: "Muy práctica y fácil de limpiar.",
+          imagenPerfil: "/images/users/user1.jpg"
+        },
+        {
+          usuario: "Nicolás Torres",
+          texto: "Buena ventilación y espacio interior.",
+          imagenPerfil: "/images/users/user4.png"
+        }
+      ]
     },
     {
       id: 10,
@@ -120,10 +243,27 @@ const data = {
       imagen: "/images/products/producto8.png",
       categoria: "Alimento",
       precio: 1300,
-      comentarios: []
+      comentarios: [
+        {
+          usuario: "Verónica Sáez",
+          texto: "Le encantan, y su aliento mejoró.",
+          imagenPerfil: "/images/users/user1.jpg"
+        },
+        {
+          usuario: "Iván Medina",
+          texto: "Perfecto para después de cada comida.",
+          imagenPerfil: "/images/users/user4.png"
+        },
+        {
+          usuario: "Julieta Arce",
+          texto: "Le dan algo que hacer mientras cuido su salud.",
+          imagenPerfil: "/images/users/user2.png"
+        }
+      ]
     }
   ]
-};
+    }
+
 
 module.exports = data;
 
