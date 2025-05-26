@@ -21,10 +21,6 @@ module.exports = function(sequelize, dataTypes){
         },
         dni: {
             type: dataTypes.STRING,
-            allowNull: false,
-            validate: {
-              isNumeric: true 
-            }
           },
         foto_perfil:{
             type: dataTypes.STRING,

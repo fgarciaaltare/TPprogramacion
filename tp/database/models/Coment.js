@@ -11,13 +11,10 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER,
         },
         id_post:{
-            autoIncrement: true,
-            primaryKey: true,
+           
             type: dataTypes.INTEGER,
         },
         id_usuario:{
-            autoIncrement: true,
-            primaryKey: true,
             type: dataTypes.INTEGER,
         },
        comentario:{
