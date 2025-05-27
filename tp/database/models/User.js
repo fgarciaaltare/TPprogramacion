@@ -13,15 +13,13 @@ module.exports = function(sequelize, dataTypes){
         email:{
             type: dataTypes.STRING,
         },
-        contrasena:{
+        pass:{
             type: dataTypes.STRING,
         },
         fecha:{
             type: dataTypes.DATE,
         },
-        dni: {
-            type: dataTypes.STRING,
-          },
+        
         foto_perfil:{
             type: dataTypes.STRING,
         },

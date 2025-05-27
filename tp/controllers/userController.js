@@ -24,6 +24,7 @@ processRegister: function(req,res){
   const email = req.body.email;
   const password = req.body.pass;
   const fechaNacimiento = req.body.fechaNacimiento;
+  const foto= req.body.fotoPerfil
 
     console.log(`no encriptada: ${password}`);
     console.log(usuario);
@@ -38,12 +39,13 @@ processRegister: function(req,res){
       
 
       db.User.create({
-          name: usuario,
           email: email, 
-          password: passwordEncriptada,
-          birthdate: fechaNacimiento,
+          pass: passwordEncriptada,
+          fecha: fechaNacimiento,
+          foto_perfil: foto,
+
       }).then(function(response){
-          return res.redirect("/login");
+          return res.redirect("/users/login");
       }).catch(function(error){
           return res.send(error);
       });
@@ -58,7 +60,7 @@ login: function(req, res) {
 },
 processLogin: function(req, res) {
   const email = req.body.email;
-  const contrasenia = req.body.contrasenia;
+  const pass = req.body.pass;
 
   
   db.User.findOne({ where: { email: email } })
@@ -68,7 +70,7 @@ processLogin: function(req, res) {
       }
 
       
-      const passwordOk = bcrypt.compareSync(contrasenia, usuario.password);
+      const passwordOk = bcrypt.compareSync(pass, usuario.password);
       if (!passwordOk) {
           return res.render("login", { error: "La contraseña es incorrecta." });
       }
