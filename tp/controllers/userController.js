@@ -4,14 +4,19 @@ const db = require('../database/models')
 
 const userController = {
   profile: function(req, res) {
-   
+    if (!req.session.usuarioLogueado) {
+      return res.redirect('/users/login');
+    }
+
+    const usuario = req.session.usuarioLogueado;
+
     res.render("profile", { 
-        nombreUsuario: data.usuario.nombre,
-        email: data.usuario.email,
-        foto: data.usuario.imagenPerfil,
+        usuario: usuario,  
+        email: usuario.email,
+        foto: usuario.foto_perfil,
         productos: data.productos
     });
-},
+  },
 register: function(req, res) {
   if (req.session.usuarioLogueado) {
       return res.redirect("/profile");
@@ -52,10 +57,9 @@ processRegister: function(req,res){
 },
 
 login: function(req, res) {
-  if (req.session.usuarioLogueado) {
+  if (req.session.usuarioLogueado != undefined) {
       return res.redirect("/profile");
   }
-
   res.render("login");
 },
 processLogin: function(req, res) {
@@ -66,13 +70,13 @@ processLogin: function(req, res) {
   db.User.findOne({ where: { email: email } })
   .then(function(usuario) {
       if (!usuario) {
-          return res.render("login", { error: "El email no está registrado." });
+        return res.send("El email no está registrado.");
       }
 
       
-      const passwordOk = bcrypt.compareSync(pass, usuario.password);
+      const passwordOk = bcrypt.compareSync(pass, usuario.pass);
       if (!passwordOk) {
-          return res.render("login", { error: "La contraseña es incorrecta." });
+        return res.send("La contraseña es incorrecta.");
       }
 
    
@@ -83,7 +87,7 @@ processLogin: function(req, res) {
           res.cookie("recordame", usuario.email, { maxAge: 1000 * 60 * 60 * 24 });
       }
 
-      return res.redirect("/");
+      return res.redirect("/users/profile");
   })
   .catch(function(error) {
       console.log("Error al loguear:", error);

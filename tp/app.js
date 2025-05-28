@@ -28,9 +28,9 @@ app.use(session({
 
 app.use(function (req, res, next) {
   if (req.session.usuarioLogueado != undefined) {
-    res.locals.user = req.session.usuarioLogueado;
+    res.locals.usuarioLogueado = req.session.usuarioLogueado;  
   } else {
-    res.locals.user = false;
+    res.locals.usuarioLogueado = false;
   }
   next();
 });

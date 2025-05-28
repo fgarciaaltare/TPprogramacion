@@ -4,7 +4,7 @@
 <%- include('./partials/head') %>
 <body>
 	<!-- Header -->
-	<%- include('partials/headerLogueado', { nombreUsuario }) %>
+	<%- include('partials/header', { user: usuario }) %>
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
@@ -15,7 +15,7 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%= nombreUsuario %> 
+					<h1 class="main-title"><%= usuario.email %> 
 						<a href="profile-edit.html">
 							<i class="fas fa-cog"></i>
 						</a>
