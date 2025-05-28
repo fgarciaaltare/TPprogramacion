@@ -7,14 +7,26 @@ const userController = {
     if (!req.session.usuarioLogueado) {
       return res.redirect('/users/login');
     }
-
+  
     const usuario = req.session.usuarioLogueado;
-
-    res.render("profile", { 
-        usuario: usuario,  
+  
+    db.Product.findAll({
+      where: {
+        id_usuario: usuario.id
+      }
+    })
+    .then(function(productosDelUsuario) {
+      res.render("profile", {
+        usuario: usuario,
         email: usuario.email,
         foto: usuario.foto_perfil,
-        productos: data.productos
+        cantidadProductos: productosDelUsuario.length,
+        productos: productosDelUsuario
+      });
+    })
+    .catch(function(error) {
+      console.log("Error al buscar productos:", error);
+      res.send("Ocurrió un error al cargar el perfil.");
     });
   },
 register: function(req, res) {

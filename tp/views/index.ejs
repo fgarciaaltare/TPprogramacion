@@ -29,14 +29,15 @@
               <img src="<%= productos[i].imagen%>" alt="">
             </figure>
             <article class="product-box_data">
-              <h2><%=productos[i].nombre%></h2>
+              <h2><%= productos[i].nombre_producto %></h2>
               <p><%=productos[i].descripcion%></p>
-              <p>comentarios:<%=productos[i].comentarios.length%></p>
+              <p>comentarios: <%= productos[i].comentarios.length %></p>
             </article>
           </a>
         </section>
       </div>
     <% } %>
+   
 
 
 

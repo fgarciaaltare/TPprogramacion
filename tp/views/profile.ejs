@@ -23,18 +23,16 @@
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 				</div>
 				
-				<p class="mt-2">Email: <%= email %></p>
+				
 
 
 				<div>
-					<ul class="">
-						<li>8 productos</li>
-						<li>200 seguidores</li>
-						<li>300 comentarios</li>
+					<ul>
+					  <li><%= productos.length %> productos</li>
+					  <li>200 seguidores</li>
+					  <li>300 comentarios</li>
 					</ul>
-				</div>
-			</div>
-		</div>
+				  </div>
 	</section>
 	<!-- /Datos del usuario -->
 
@@ -53,12 +51,11 @@
 		  <section class="product-box">
 			<a href="/product/detalle/<%= productos[i].id %>">
 			  <figure class="product-box_image">
-				<img src="<%= productos[i].imagen%>" alt="">
+				<img src="<%= productos[i].nombre_imagen %>" alt="foto producto">
 			  </figure>
 			  <article class="product-box_data">
 				<h2><%=productos[i].nombre%></h2>
 				<p><%=productos[i].descripcion%></p>
-				<p>comentarios:<%=productos[i].comentarios.length%></p>
 			  </article>
 			</a>
 		  </section>

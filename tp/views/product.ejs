@@ -1,72 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-<%- include('partials/head') %>
+  <!-- Include Head -->
+  <%- include('partials/head') %>
 
-	<body>
-		<!-- Header -->
-		<%- include('partials/header') %>
-			<!-- /Header -->
+  <body>
+    <!-- Header -->
+    <%- include('partials/header') %>
+    <!-- /Header -->
 
-			<!-- product detail -->
-			<div class="container products-wrapper">
-				<div class="d-flex align-items-center">
-					<h2 class="products-title">
-						<%= producto.nombre %>
-					</h2>
-					<p class="product-detail-description">
-						<a href="/product/product-add">Editar</a>
-					</p>
-				</div>
+    <!-- product detail -->
+    <div class="container products-wrapper">
+      <div class="d-flex align-items-center">
+        <h2 class="products-title">
+          <%= producto.nombre_producto %>
+        </h2>
+        <p class="product-detail-description">
+          <a href="/product/product-add">Editar</a>
+        </p>
+      </div>
 
+      <div class="product-detail">
+        <div class="row">
+          <article class="col-12 col-lg-8 product-detail-info">
+            <!-- Imagen del producto -->
+			<img src="/images/products/<%= producto.nombre_imagen %>" alt="Imagen del producto" width="300">
 
-				<div class="product-detail">
-					<div class="row">
-						<article class="col-12 col-lg-8 product-detail-info">
-							<img src="<%= producto.imagen %>" alt="" class="product-detail-img">
-							<p class="product-detail-description">
-								"<%= producto.descripcion %>"</p>
-						</article>
-						<div class="col-12 col-lg-4">
-							<section class="comments">
+            
+            <!-- Descripción -->
+            <p class="product-detail-description">
+              <%= producto.descripcion %>
+            </p>
+          </article>
 
-								<div class="data">
-									<% for (let i=0; i < producto.comentarios.length; i++) { %>
-										<article>
+          <div class="col-12 col-lg-4">
+            <section class="comments">
+              <!-- Podés agregar comentarios reales más adelante si querés -->
+              <p>No hay comentarios por el momento.</p>
+            </section>
 
-											<div class="comentario">
-												<img src="<%= producto.comentarios[i].imagenPerfil %>"
-													alt="Foto de <%= producto.comentarios[i].usuario %>" />
-												<strong>
-													<%= producto.comentarios[i].usuario %>
-												</strong>
-												<p>
-													<%= producto.comentarios[i].texto %>
-												</p>
-											</div>
-										</article>
+            <!-- Formulario para agregar comentario -->
+            <form class="form" action="" method="POST">
+              <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario" />
+              <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+            </form>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /product detail -->
 
-										<% } %>
-
-								</div>
-
-
-							</section>
-							<form class="form" action="" method="POST">
-								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-
-								<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-							</form>
-							<hr>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /product detail -->
-
-			<!-- footer -->
-			<%- include('partials/footer') %>
-				<!-- /footer -->
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+  </body>
+</html>
 
 	</body>
 
