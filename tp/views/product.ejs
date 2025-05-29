@@ -12,7 +12,7 @@
     <div class="container products-wrapper">
       <div class="d-flex align-items-center">
         <h2 class="products-title">
-          <%= producto.nombre_producto %>
+			<%= producto.nombre_producto %>
         </h2>
         <p class="product-detail-description">
           <a href="/product/product-add">Editar</a>
@@ -23,7 +23,7 @@
         <div class="row">
           <article class="col-12 col-lg-8 product-detail-info">
             <!-- Imagen del producto -->
-			<img src="/images/products/<%= producto.nombre_imagen %>" alt="Imagen del producto" width="300">
+			<img src="<%= producto.nombre_imagen %>">
 
             
             <!-- Descripción -->
