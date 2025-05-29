@@ -11,7 +11,7 @@ const mainController = {
         let busqueda = req.query.search_query;
         db.Product.findAll({
             where: {
-                nombre_producto: {[op.like]: `%${busqueda}$%`}
+                nombre_producto: {[op.like]: `%${busqueda}%`}
             }
           })
         .then(function(resultados){
