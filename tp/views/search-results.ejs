@@ -9,10 +9,6 @@
     <div class="row">
       <div class="col-12">
         <h2 class="products-title">Resultados de búsqueda</h2>
-
-        <% if (busqueda) { %>
-          <h2>Resultados para: "<%= busqueda %>"</h2>
-        <% } %>
       </div>
 
       <% if (productos.length === 0) { %>
@@ -31,16 +27,13 @@
               <article class="product-box_data">
                 <h2><%= productos[i].nombre %></h2>
                 <p><%= productos[i].descripcion %></p>
-                <p>Comentarios: <%= productos[i].comentarios.length %></p>
 
                 <% if (productos[i].usuario) { %>
                   <p>Publicado por:
-                    <a href="/usuario/perfil/<%= productos[i].usuario.id %>">
+                    <a href="/users/profile/<%= productos[i].usuario.id %>">
                       <%= productos[i].usuario.email %>
                     </a>
                   </p>
-                <% } else { %>
-                  <p>Publicado por: Usuario desconocido</p>
                 <% } %>
               </article>
             </a>
