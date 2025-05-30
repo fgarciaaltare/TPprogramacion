@@ -29,6 +29,38 @@ const userController = {
       res.send("Ocurrió un error al cargar el perfil.");
     });
   },
+
+  profileById: function(req, res) {
+    const idUsuario = req.params.id;
+
+    db.User.findOne({
+      where: { id: idUsuario }
+    })
+    .then(function(usuario) {
+      if (!usuario) {
+        return res.send("Usuario no encontrado.");
+      }
+
+      db.Product.findAll({
+        where: { id_usuario: usuario.id }
+      })
+      .then(function(productosDelUsuario) {
+        res.render("profile", {
+          usuario: usuario,
+          email: usuario.email,
+          foto: usuario.foto_perfil,
+          cantidadProductos: productosDelUsuario.length,
+          productos: productosDelUsuario
+        });
+      });
+    })
+    .catch(function(error) {
+      console.log("Error al buscar perfil por ID:", error);
+      res.send("Ocurrió un error al cargar el perfil.");
+    });
+  },
+
+
 register: function(req, res) {
   if (req.session.usuarioLogueado) {
       return res.redirect("/profile");

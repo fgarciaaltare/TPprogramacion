@@ -10,6 +10,7 @@ const mainController = {
 
     searchResults: function(req, res) {
         let busqueda = req.query.search_query;
+
         db.Product.findAll({   
             include: [{ association: "usuario" },
             ], 
@@ -17,8 +18,7 @@ const mainController = {
                 nombre_producto: {[op.like]: `%${busqueda}%`}
             }
           })
-        .then(function(resultados){
-         
+          .then(function(resultados){
             res.render("search-results", {
                 productos: resultados,
                 busqueda: busqueda
@@ -29,4 +29,9 @@ const mainController = {
 };
 
 module.exports = mainController;
+
+
+
+
+
 
