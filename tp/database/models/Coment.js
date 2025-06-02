@@ -17,7 +17,7 @@ module.exports = function(sequelize, dataTypes){
         id_usuario:{
             type: dataTypes.INTEGER,
         },
-       comentario:{
+        comentario:{
             type: dataTypes.STRING,
         },
       
@@ -25,7 +25,8 @@ module.exports = function(sequelize, dataTypes){
 
     let config = {
         tableName : "comentarios",
-        timestamps:false, //Indica al modelo si debe buscar los campos createdAt y updatedAt en la tabla. Si están en la tabla no es necesario declararlos en la lista de campos.
+        timestamps:true,
+        underscored:false //Indica al modelo si debe buscar los campos createdAt y updatedAt en la tabla. Si están en la tabla no es necesario declararlos en la lista de campos.
         // Si en la tabla están con guión bajo hay que usar la propiedad underscore.
         // underscored: false, //Indica al modelo que si loscampos de timestamp en la tabla usan o no guiones bajos en lugar de camelCase.
     }
@@ -33,16 +34,15 @@ module.exports = function(sequelize, dataTypes){
    const Coment = sequelize.define(alias, cols, config);
    Coment.associate = function(models){
     Coment.belongsTo(models.User, {
-        as: "usuario",
+        as: "usuarios",
         foreingKey: "id_usuario"
-    })
-   }
-   Coment.associate = function(models){
+    }),
     Coment.belongsTo(models.Product, {
         as: "productos",
-        foreingKey: "id_post"
+        foreignKey: "id_post"
     })
    }
+
 
 
    return Coment;

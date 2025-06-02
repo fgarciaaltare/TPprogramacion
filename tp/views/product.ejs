@@ -34,20 +34,35 @@
 
           <div class="col-12 col-lg-4">
             <section class="comments">
-              <!-- Podés agregar comentarios reales más adelante si querés -->
-              <p>No hay comentarios por el momento.</p>
+              <% for (let i = 0; i < producto.comentarios.length; i++) { %>
+                <article>
+                  <div class="data">
+                    <p class="user">
+                      <strong>
+                        <a href="/users/profile/<%= producto.comentarios[i].usuario.id %>">
+                          <%= producto.comentarios[i].usuario.nombre %>
+                        </a>
+                      </strong>
+                      <br>
+                      <%= producto.comentarios[i].comentario %>
+                    </p>
+                  </div>
+                </article>
+              <% } %>
+              <% if (producto.comentarios.length === 0) { %>
+                <p>No hay comentarios por ahora.</p>
+              <% } %>
             </section>
-
             <!-- Formulario para agregar comentario -->
-            <form class="form" action="" method="POST">
-              <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario" />
-              <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-            </form>
-            <hr />
+            <% if (usuarioLogueado) { %>
+              <form class="form" action="/product/<%= producto.id %>/comentario" method="POST">
+                <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario" required />
+                <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+              </form>
+            <% } else { %>
+              <p><a href="/users/login">Iniciá sesión para comentar</a></p>
+            <% } %>
           </div>
-        </div>
-      </div>
-    </div>
     <!-- /product detail -->
 
     <!-- footer -->

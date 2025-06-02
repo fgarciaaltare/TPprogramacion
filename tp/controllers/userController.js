@@ -33,18 +33,22 @@ const userController = {
   profileById: function(req, res) {
     const idUsuario = req.params.id;
 
-    db.User.findOne({
+    db.User.findOne({include: [{association: 'productos'}]},{
       where: { id: idUsuario }
     })
     .then(function(usuario) {
+      return res.send(usuario)//no hace falta el findAll ustedes aca tienen que trear los productos atravez d el a
       if (!usuario) {
         return res.send("Usuario no encontrado.");
       }
 
-      db.Product.findAll({
+      db.Product.findAll(
+        {
         where: { id_usuario: usuario.id }
       })
       .then(function(productosDelUsuario) {
+        console.log(productosDelUsuario);
+        
         res.render("profile", {
           usuario: usuario,
           email: usuario.email,

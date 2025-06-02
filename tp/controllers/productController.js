@@ -1,5 +1,5 @@
 const data= require("../db/datos")
-const db = require('../database/models')
+const db = require('../database/models');
 
 const productController={
     vistaProducto: function (req, res) {
@@ -9,23 +9,40 @@ const productController={
     }, 
     detalle: function(req, res) {
         const idProducto = req.params.id;
+        
       
-        db.Product.findByPk(idProducto)
-          .then(function(producto) {
-            if (!producto) {
-              return res.send("Producto no encontrado");
-            }
-      
-            res.render("product", { producto: producto });
-          })
-          .catch(function(error) {
-            console.log("Error al buscar producto:", error);
-            res.send("Ocurrió un error.");
+        db.Product.findByPk(idProducto,{
+          include: [
+            {association: 'comentarios'},
+            {association: 'usuarios'}  
+          ]}
+          )
+        .then(function(producto) {
+          console.log(producto);
+          
+          if (!producto) {
+            return res.send("Producto no encontrado");
+          }
+
+          return res.send(producto)
+          res.render("product", {
+            producto: producto,
+            comentarios: comentarios,
+            usuarioLogueado: req.session.usuarioLogueado
           });
+
+  
+        })
+        .catch(function(error) {
+          console.log(error);
+          
+          console.log("Error al buscar producto:", error);
+          res.send(error);
+        });
       },
     formularioComentario: function (req,res){
         const idProducto=req.params.id;
-        const idcomentario=req.params.idComentario;
+        const idComentario=req.params.idComentario;
 
         res.render("comentariosProducto", {id: idProducto, idComentario});
     },
@@ -56,8 +73,30 @@ const productController={
           console.log("Error al guardar el producto:", error);
           res.send("Hubo un error al guardar el producto.");
         });
-      }
-    };
+      },
+
+      crearComentario: function(req, res) {
+        if (!req.session.usuarioLogueado) {
+          return res.redirect("/users/login");
+        }
+    
+        const nuevoComentario = {
+          id_post: req.params.id,
+          id_usuario: req.session.usuarioLogueado.id,
+          comentario: req.body.comentario
+        };
+
+        db.Coment.create(nuevoComentario)
+        .then(function() {
+          res.redirect(`/product/${req.params.id}`);
+      })
+      .catch(function(error) {
+        console.log("Error al agregar comentario:", error);
+        res.send("No se pudo agregar el comentario.");
+      });
+    
+    }
+  }
     
 
 

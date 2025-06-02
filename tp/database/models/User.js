@@ -1,3 +1,5 @@
+
+
 module.exports = function(sequelize, dataTypes){
 
     //Definir un alias.
@@ -28,7 +30,8 @@ module.exports = function(sequelize, dataTypes){
 
     let config = {
         tableName : "usuarios",
-        timestamps:false, //Indica al modelo si debe buscar los campos createdAt y updatedAt en la tabla. Si están en la tabla no es necesario declararlos en la lista de campos.
+        timestamps:true,
+        underscored: false //Indica al modelo si debe buscar los campos createdAt y updatedAt en la tabla. Si están en la tabla no es necesario declararlos en la lista de campos.
         // Si en la tabla están con guión bajo hay que usar la propiedad underscore.
         // underscored: false, //Indica al modelo que si loscampos de timestamp en la tabla usan o no guiones bajos en lugar de camelCase.
     }
@@ -39,14 +42,13 @@ module.exports = function(sequelize, dataTypes){
     User.hasMany(models.Product,{
         as: "productos",
         foreignKey: "id_usuario"
-    })
-   }
-   User.associate = function(models){
+    }),
     User.hasMany(models.Coment,{
         as: "comentarios",
         foreignKey: "id_usuario"
     })
    }
+   
 
 
    return User;
