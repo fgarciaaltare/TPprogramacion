@@ -3,7 +3,8 @@ const db = require('../database/models');
 
 const productController={
     vistaProducto: function (req, res) {
-        res.render("product");
+        res.render("product", {
+        });
         
         
     }, 
@@ -33,7 +34,7 @@ const productController={
           res.render("product", {
             producto: producto,
             comentarios: producto.comentarios,
-            usuarioLogueado: req.session.usuarioLogueado
+            usuarioLogueado: req.session.usuarioLogueado,
           });
 
   

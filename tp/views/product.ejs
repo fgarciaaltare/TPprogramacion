@@ -32,6 +32,7 @@
             <p class="product-detail-description">
               <%= producto.descripcion %>
             </p>
+
           </article>
           <div class="col-12 col-lg-4">
             <section class="comments">
@@ -39,8 +40,6 @@
                   <% for (let i = 0; i < producto.comentarios.length; i++) { %>
                     <article>
                       <img src="/images/users/<%= producto.comentarios[i].usuarios.foto_perfil %>" alt="foto perfil" width="40">
-
-
                       <div class="data">
                         <p class="user">
                           <strong>

@@ -92,7 +92,12 @@ processRegister: function(req,res){
       }).then(function(response){
           return res.redirect("/users/login");
       }).catch(function(error){
+        if (error.name === "SequelizeUniqueConstraintError"){
+          return res.send("El email registrado ya pertenece a un usuario")
+        }
+        else{
           return res.send(error);
+        }
       });
 },
 

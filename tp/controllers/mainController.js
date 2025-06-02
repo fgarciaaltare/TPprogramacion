@@ -6,7 +6,9 @@ const mainController = {
 
     index: function (req, res) {
         db.Product.findAll({
-          include: [{ association: "comentarios" }]
+          include: [{ association: "comentarios" },
+            {association: "usuarios"}
+          ]
         }).then(function(productos) {
           res.render("index", {
             productos: productos,

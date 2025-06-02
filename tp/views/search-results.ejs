@@ -13,7 +13,7 @@
 
       <% if (productos.length === 0) { %>
         <div class="col-12">
-          <p>No hay resultados para su criterio de búsqueda.</p>
+          <p >No hay resultados para su criterio de búsqueda.</p>
         </div>
       <% } %>
 
@@ -28,10 +28,9 @@
               <article class="product-box_data">
                 <h2><%= productos[i].nombre_producto%></h2>
                 <p><%= productos[i].descripcion %></p>
-
                 <% if (productos[i].usuario) { %>
                   <p>Publicado por:
-                    <a href="/users/profile/<%= productos[i].usuario.id %>">
+                    <a href="/users/profile/<%= productos[i].usuarios.id %>">
                       <%= productos[i].usuario.email %>
                     </a>
                   </p>
