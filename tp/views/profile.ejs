@@ -11,7 +11,7 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="<%=foto %>" alt="Foto de perfil" class="foto-perfil" width="150">
+				<img src="/images/users/<%= usuario.foto_perfil %>" alt="Foto de perfil" class="foto-perfil" width="150">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
@@ -51,7 +51,7 @@
 		  <section class="product-box">
 			<a href="/product/detalle/<%= productos[i].id %>">
 			  <figure class="product-box_image">
-				<img src="<%= productos[i].nombre_imagen %>" alt="foto producto">
+				<img src="/images/products/<%= productos[i].nombre_imagen %>" alt="foto producto">
 			  </figure>
 			  <article class="product-box_data">
 				<h2><%=productos[i].nombre_producto%></h2>

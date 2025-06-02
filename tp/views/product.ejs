@@ -23,7 +23,9 @@
         <div class="row">
           <article class="col-12 col-lg-8 product-detail-info">
             <!-- Imagen del producto -->
-			<img src="<%= producto.nombre_imagen %>">
+			
+            <img src="/images/products/<%= producto.nombre_imagen %>" alt="<%= producto.nombre_producto %>">
+
 
             
             <!-- Descripción -->
@@ -31,40 +33,37 @@
               <%= producto.descripcion %>
             </p>
           </article>
-
           <div class="col-12 col-lg-4">
             <section class="comments">
-              <% for (let i = 0; i < producto.comentarios.length; i++) { %>
-                <article>
-                  <div class="data">
-                    <p class="user">
-                      <strong>
-                        <a href="/users/profile/<%= producto.comentarios[i].usuario.id %>">
-                          <%= producto.comentarios[i].usuario.nombre %>
-                        </a>
-                      </strong>
-                      <br>
-                      <%= producto.comentarios[i].comentario %>
-                    </p>
-                  </div>
-                </article>
-              <% } %>
-              <% if (producto.comentarios.length === 0) { %>
-                <p>No hay comentarios por ahora.</p>
-              <% } %>
-            </section>
-            <!-- Formulario para agregar comentario -->
-            <% if (usuarioLogueado) { %>
-              <form class="form" action="/product/<%= producto.id %>/comentario" method="POST">
-                <input class="form-input" type="text" name="comentario" placeholder="Agregar comentario" required />
-                <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-              </form>
-            <% } else { %>
-              <p><a href="/users/login">Iniciá sesión para comentar</a></p>
-            <% } %>
-          </div>
-    <!-- /product detail -->
+              
+                  <% for (let i = 0; i < producto.comentarios.length; i++) { %>
+                    <article>
+                      <img src="/images/users/<%= producto.comentarios[i].usuarios.foto_perfil %>" alt="foto perfil" width="40">
 
+
+                      <div class="data">
+                        <p class="user">
+                          <strong>
+                            <a href="/profile/<%= producto.comentarios[i].usuarios.id %>">
+                              <%= producto.comentarios[i].usuarios.usuario %>
+                            </a>:
+                          </strong>
+                          <%= producto.comentarios[i].comentario %>
+                        </p>
+                      </div>
+                    </article>
+                  <% } %>
+                </section>
+              
+                <form class="form" action="/product/detalle/<%= producto.id %>" method="POST">
+                  <input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
+                  <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                </form>
+                <hr>
+              </div>
+          
+          
+          
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- /footer -->

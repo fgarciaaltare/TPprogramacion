@@ -37,26 +37,18 @@ const userController = {
       where: { id: idUsuario }
     })
     .then(function(usuario) {
-      return res.send(usuario)//no hace falta el findAll ustedes aca tienen que trear los productos atravez d el a
+      console.log(usuario);
+      //no hace falta el findAll ustedes aca tienen que trear los productos atravez d el a
       if (!usuario) {
         return res.send("Usuario no encontrado.");
       }
-
-      db.Product.findAll(
-        {
-        where: { id_usuario: usuario.id }
-      })
-      .then(function(productosDelUsuario) {
-        console.log(productosDelUsuario);
-        
-        res.render("profile", {
-          usuario: usuario,
-          email: usuario.email,
-          foto: usuario.foto_perfil,
-          cantidadProductos: productosDelUsuario.length,
-          productos: productosDelUsuario
-        });
-      });
+      res.render('profile',{
+        usuario: usuario,
+        email: usuario.email,
+        foto: usuario.foto_perfil,
+        cantidadProductos: usuario.productos.length,
+        productos: usuario.productos
+      } )
     })
     .catch(function(error) {
       console.log("Error al buscar perfil por ID:", error);

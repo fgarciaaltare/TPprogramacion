@@ -13,10 +13,15 @@ const productController={
       
         db.Product.findByPk(idProducto,{
           include: [
-            {association: 'comentarios'},
-            {association: 'usuarios'}  
-          ]}
-          )
+            {
+              association: 'comentarios',
+              include: [{ association: 'usuarios' }] 
+            },
+            {
+              association: 'usuarios' 
+            }
+          ]
+          })
         .then(function(producto) {
           console.log(producto);
           
@@ -24,10 +29,10 @@ const productController={
             return res.send("Producto no encontrado");
           }
 
-          return res.send(producto)
+        
           res.render("product", {
             producto: producto,
-            comentarios: comentarios,
+            comentarios: producto.comentarios,
             usuarioLogueado: req.session.usuarioLogueado
           });
 
@@ -86,9 +91,12 @@ const productController={
           comentario: req.body.comentario
         };
 
+        console.log(nuevoComentario);
+        
+
         db.Coment.create(nuevoComentario)
         .then(function() {
-          res.redirect(`/product/${req.params.id}`);
+          res.redirect(`/product/detalle/${req.params.id}`);
       })
       .catch(function(error) {
         console.log("Error al agregar comentario:", error);
