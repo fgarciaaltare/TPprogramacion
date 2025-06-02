@@ -3,12 +3,20 @@ const db = require('../database/models');
 const op = db.Sequelize.Op;
 
 const mainController = {
-    index: function(req, res) {
-        res.render("index", {productos: data.productos });
-    },
 
-   
-    
+    index: function (req, res) {
+        db.Product.findAll({
+          include: [{ association: "comentarios" }]
+        }).then(function(productos) {
+          res.render("index", {
+            productos: productos,
+            user: req.session.user
+          });
+        }).catch(function(error) {
+          console.log("Error al buscar productos", error);
+          res.send("Ocurrió un error");
+        });
+      },
 
     searchResults: function(req, res) {
         let busqueda = req.query.search_query;
