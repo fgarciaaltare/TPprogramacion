@@ -28,14 +28,13 @@
               <article class="product-box_data">
                 <h2><%= productos[i].nombre_producto%></h2>
                 <p><%= productos[i].descripcion %></p>
-                <% if (productos[i].usuario) { %>
+                <% if (productos[i].usuarios) { %>
                   <p>Publicado por:
                     <a href="/users/profile/<%= productos[i].usuarios.id %>">
-                      <%= productos[i].usuario.email %>
+                      <%= productos[i].usuarios.email %>
                     </a>
                   </p>
                 <% } %>
-              </article>
             </a>
           </section>
         </div>

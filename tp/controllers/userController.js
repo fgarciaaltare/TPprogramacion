@@ -33,8 +33,9 @@ const userController = {
   profileById: function(req, res) {
     const idUsuario = req.params.id;
 
-    db.User.findOne({include: [{association: 'productos'}]},{
-      where: { id: idUsuario }
+    db.User.findOne({
+      where: { id: idUsuario },
+      include: [{ association: 'productos' }]
     })
     .then(function(usuario) {
       console.log(usuario);

@@ -56,6 +56,11 @@
 			  <article class="product-box_data">
 				<h2><%=productos[i].nombre_producto%></h2>
 				<p><%=productos[i].descripcion%></p>
+				<p>Publicado por:
+					<a href="/users/profile/<%= usuario.id %>">
+					  <%= usuario.email %>
+					</a>
+				  </p>
 			  </article>
 			</a>
 		  </section>
