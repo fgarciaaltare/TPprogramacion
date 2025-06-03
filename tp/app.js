@@ -26,6 +26,7 @@ app.use(session({
   saveUninirialized: true
 }));
 
+
 app.use(function (req, res, next) {
   if (req.session.usuarioLogueado != undefined) {
     res.locals.usuarioLogueado = req.session.usuarioLogueado;  

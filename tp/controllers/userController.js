@@ -72,16 +72,16 @@ processRegister: function(req,res){
   const fechaNacimiento = req.body.fechaNacimiento;
   const foto= req.body.fotoPerfil
 
-    console.log(`no encriptada: ${password}`);
-    console.log(usuario);
-    console.log(email);
-    console.log(fechaNacimiento);
-    
-    
- 
-      const passwordEncriptada = bcrypt.hashSync(password, 10);
+  if (password === "") {
+    return res.render("register", {error: "La contraseña no puede estar vacía."});
+  }
 
-      console.log(`encriptada: ${passwordEncriptada}`);
+  if (password.length < 3) {
+    return res.render("register", {error: "La contraseña debe tener al menos 3 caracteres."});
+  }
+    
+    const passwordEncriptada = bcrypt.hashSync(password, 10);
+    console.log(`encriptada: ${passwordEncriptada}`);
       
 
       db.User.create({
